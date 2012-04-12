@@ -25,7 +25,7 @@ SneeuwLandschap::SneeuwLandschap()
 	this->sneeuwHoogte = 30;
 
 	//maak een nieuwe sneeuwman
-	this->sneeuwMan = new SneeuwMan( screenWidth / 2, screenHeight - this->sneeuwHoogte );
+	this->sneeuwMan = new SneeuwMan( screenWidth / 2, screenHeight - this->sneeuwHoogte - 30 );
 }
 
 
@@ -53,6 +53,11 @@ void SneeuwLandschap::run( MAEvent event )
 	//TODO: laat alle sneeuwvlokken vallen
 }
 
+/*int SneeuwLandschap::getWidth()
+{
+	return screenWidth;
+}*/
+
 
 //wordt elke "tick" aangeroepen om het winterlandschap, sneeuwman en sneeuwvlokken te tekenen
 void SneeuwLandschap::draw()
@@ -64,6 +69,8 @@ void SneeuwLandschap::draw()
 	//maak sneeuw op de grond, a.d.h.v. sneeuwHoogte
 	maSetColor( 0xffffff );
 	maFillRect( 0, screenHeight - this->sneeuwHoogte, screenWidth, this->sneeuwHoogte );
+
+	this->sneeuwMan->draw();
 
 	//TODO: teken de sneeuwman
 
