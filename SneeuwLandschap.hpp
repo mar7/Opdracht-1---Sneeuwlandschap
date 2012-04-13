@@ -30,6 +30,7 @@ public:
 	SneeuwLandschap();
 	void draw();
 	void run( MAEvent event );
+	//int getWidth();
 };
 
 
