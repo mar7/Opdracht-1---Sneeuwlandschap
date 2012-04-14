@@ -2,7 +2,7 @@
  * SneeuwLandschap.cpp
  *
  *  Created on: 8 feb. 2012
- *      Author: acer
+ *      Author: acer, Marijn
  */
 
 #include "SneeuwLandschap.hpp"
@@ -57,9 +57,11 @@ void SneeuwLandschap::run( MAEvent event )
 	{
 		sneeuwVlokArray[i]->fall(screenHeight - this->sneeuwHoogte);
 
-		if(sneeuwVlokArray[i]->isDead())
+		if(sneeuwVlokArray[i]->isDead()) // verwijderen als sneeuwvlok op grond is
 		{
+			SneeuwVlok* dood = sneeuwVlokArray[i];
 			sneeuwVlokArray.remove(i);
+			delete dood;
 		}
 	}
 }

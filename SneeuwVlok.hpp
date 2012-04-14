@@ -2,7 +2,7 @@
  * SneeuwVlok.hpp
  *
  *  Created on: 8 feb. 2012
- *      Author: acer
+ *      Author: acer, Marijn
  */
 
 #ifndef SNEEUWVLOK_HPP_

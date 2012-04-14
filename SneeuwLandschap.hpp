@@ -2,7 +2,7 @@
  * SneeuwLandschap.hpp
  *
  *  Created on: 8 feb. 2012
- *      Author: acer
+ *      Author: acer, Marijn
  */
 
 #ifndef SNEEUWLANDSCHAP_HPP_
@@ -14,6 +14,8 @@
 
 #include <MAUtil/Vector.h>
 #include <MAUtil/Environment.h>
+
+#include <conprint.h>
 
 
 #include "SneeuwMan.hpp"

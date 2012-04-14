@@ -2,7 +2,7 @@
  * SneeuwMan.hpp
  *
  *  Created on: 8 feb. 2012
- *      Author: acer
+ *      Author: acer, Marijn
  */
 
 #ifndef SNEEUWMAN_HPP_
