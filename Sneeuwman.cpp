@@ -29,9 +29,10 @@ void SneeuwMan::draw()
 
 void SneeuwMan::move(int richting)
 {
-/*	if (positieX + richting < sneeuwLandschap->getWidth() + 30 || positieX + richting > 0) // niet voorbij de rand van het scherm
-	{
-		this->positieX += richting; // verander de positie
-	}*/
 	this->positieX += richting; // verander de positie
+}
+
+int SneeuwMan::getXpositie()
+{
+	return positieX;
 }

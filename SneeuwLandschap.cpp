@@ -7,11 +7,9 @@
 
 #include "SneeuwLandschap.hpp"
 
-
 //globale variabelen voor breedte en hoogte van het scherm
 int screenWidth;
 int screenHeight;
-
 
 //constructor
 SneeuwLandschap::SneeuwLandschap()
@@ -26,8 +24,9 @@ SneeuwLandschap::SneeuwLandschap()
 
 	//maak een nieuwe sneeuwman
 	this->sneeuwMan = new SneeuwMan( screenWidth / 2, screenHeight - this->sneeuwHoogte - 30 );
-}
 
+	//MAUtil::Environment::getEnvironment().addTimer(this, 40, 0);
+}
 
 //wordt aangeroepen als er input is (druk op de toets, touch van scherm)
 void SneeuwLandschap::run( MAEvent event )
@@ -39,25 +38,31 @@ void SneeuwLandschap::run( MAEvent event )
 		int key = maGetKeys();
 
 		//kijk voor linkertoets
-		if( key == MAKB_LEFT )
+		if( key == MAKB_LEFT && sneeuwMan->getXpositie() > 0 )
 			this->sneeuwMan->move( -6 );	//beweeg sneeuwman -6 pixels
 
 		//kijk voor rechtertoets
-		if( key == MAKB_RIGHT )
+		if( key == MAKB_RIGHT && sneeuwMan->getXpositie() < screenWidth - 30 )
 			this->sneeuwMan->move( 6 );		//beweeg sneeuwman 6 pixels
 	}
 
+	// wacht 40 ms
+	maWait(40);
 
-	//TODO: voeg een sneeuwvlok toe
+	// maak sneeuwvlok
+	createSnow();
 
-	//TODO: laat alle sneeuwvlokken vallen
+	// laat alle sneeuwvlokken vallen
+	for (int i = 0; i < sneeuwVlokArray.size(); i++)
+	{
+		sneeuwVlokArray[i]->fall(screenHeight - this->sneeuwHoogte);
+
+		if(sneeuwVlokArray[i]->isDead())
+		{
+			sneeuwVlokArray.remove(i);
+		}
+	}
 }
-
-/*int SneeuwLandschap::getWidth()
-{
-	return screenWidth;
-}*/
-
 
 //wordt elke "tick" aangeroepen om het winterlandschap, sneeuwman en sneeuwvlokken te tekenen
 void SneeuwLandschap::draw()
@@ -70,11 +75,24 @@ void SneeuwLandschap::draw()
 	maSetColor( 0xffffff );
 	maFillRect( 0, screenHeight - this->sneeuwHoogte, screenWidth, this->sneeuwHoogte );
 
+	// teken de sneeuwman
 	this->sneeuwMan->draw();
 
-	//TODO: teken de sneeuwman
-
-	//TODO: teken alle sneeuwvlokken
+	//teken alle sneeuwvlokken
+	for (int i = 0; i < sneeuwVlokArray.size(); i++)
+	{
+		sneeuwVlokArray[i]->draw();
+	}
 }
 
+void SneeuwLandschap::createSnow()
+{
+	// maak willekeurige x-positie
+	int xpositie = rand() % screenWidth;
 
+	// maak nieuwe sneeuwvlok
+	SneeuwVlok* sneeuwVlok = new SneeuwVlok(xpositie, 0);
+
+	// voeg sneeuwvlok toe aan array
+	sneeuwVlokArray.add(sneeuwVlok);
+}

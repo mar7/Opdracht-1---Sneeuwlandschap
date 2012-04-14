@@ -11,6 +11,7 @@
 
 //deze header hebben we nodig voor de functie rand()
 #include <mastdlib.h>
+#include <ma.h>
 
 
 //maak een klasse SneeuwVlok
@@ -25,11 +26,10 @@ private:
 
 public:
 	SneeuwVlok( int positionX, int positionY );	//constructor
+	virtual ~SneeuwVlok();
 	void draw();								//teken functie die een sneeuwvlok tekent
 	void fall( int groundLevel );				//functie die de y positie verandert
 	bool isDead();								//functie die de sneeuwvlok dead status teruggeeft
 };
-
-
 
 #endif /* SNEEUWVLOK_HPP_ */

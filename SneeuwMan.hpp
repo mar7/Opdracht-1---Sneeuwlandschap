@@ -12,9 +12,6 @@
 //bevat teken functies
 #include <ma.h>
 
-//#include "SneeuwLandschap.hpp"
-
-
 //de klasse SneeuwMan
 class SneeuwMan
 {
@@ -34,6 +31,9 @@ public:
 
 	//tekent een sneeuwman
 	void draw();
+
+	// haal xpositie op
+	int getXpositie();
 };
 
 

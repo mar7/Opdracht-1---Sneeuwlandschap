@@ -9,14 +9,15 @@
 #define SNEEUWLANDSCHAP_HPP_
 
 
+#include <mastdlib.h>
 #include <ma.h>
+
 #include <MAUtil/Vector.h>
+#include <MAUtil/Environment.h>
 
 
 #include "SneeuwMan.hpp"
 #include "SneeuwVlok.hpp"
-
-
 
 class SneeuwLandschap
 {
@@ -30,8 +31,8 @@ public:
 	SneeuwLandschap();
 	void draw();
 	void run( MAEvent event );
-	//int getWidth();
-};
+	void createSnow();
 
+};
 
 #endif /* SNEEUWLANDSCHAP_HPP_ */
