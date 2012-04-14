@@ -15,9 +15,6 @@
 #include <MAUtil/Vector.h>
 #include <MAUtil/Environment.h>
 
-#include <conprint.h>
-
-
 #include "SneeuwMan.hpp"
 #include "SneeuwVlok.hpp"
 

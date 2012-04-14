@@ -24,8 +24,6 @@ SneeuwLandschap::SneeuwLandschap()
 
 	//maak een nieuwe sneeuwman
 	this->sneeuwMan = new SneeuwMan( screenWidth / 2, screenHeight - this->sneeuwHoogte - 30 );
-
-	//MAUtil::Environment::getEnvironment().addTimer(this, 40, 0);
 }
 
 //wordt aangeroepen als er input is (druk op de toets, touch van scherm)

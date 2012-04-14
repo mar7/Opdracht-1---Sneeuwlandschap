@@ -41,7 +41,6 @@ void SneeuwVlok::fall( int groundLevel ) //functie die de y positie verandert
 	{
 		this->positionY += 2; // valt verder
 	}
-
 }
 
 bool SneeuwVlok::isDead() // geef terug wel/niet op grond gevallen
